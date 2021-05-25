@@ -18,23 +18,39 @@ export default function bulidURL(url: string, params?: any) {
   const parts: string[] = []
 
   Object.keys(params).forEach(key => {
+
     let val = params[key]
+
     let values = []
+
     if (Array.isArray(val)) {
+
       values = val
+
       key += '[]'
+
     } else {
+
       values = [val]
+
     }
+
     values.forEach(val => {
+
       if (isPlainObject(val)) {
+
         val = JSON.stringify(val)
+
       } else if (isDate(val)) {
+
         val = val.toISOString()
+
       }
+
       parts.push(`${encode(key)}=${encode(val)}`)
     })
   })
+
   let serializedParams: string = parts.join('&')
 
   if (serializedParams) {
