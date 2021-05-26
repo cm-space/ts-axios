@@ -1,4 +1,4 @@
-import { AxiosRequestConfig, AxiosResponse } from '../src/types/index'
+import { AxiosRequestConfig, AxiosResponse } from '../types'
 
 class AxiosError extends Error {
   isAxiosError: boolean
@@ -6,7 +6,6 @@ class AxiosError extends Error {
   response?: AxiosResponse
   code?: string | null
   request?: any
-
 
   constructor(
     message: string,
@@ -17,7 +16,7 @@ class AxiosError extends Error {
   ) {
     super()
     this.isAxiosError = true
-    this.message=message
+    this.message = message
     this.config = config
     this.code = code
     this.request = request

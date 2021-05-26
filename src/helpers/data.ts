@@ -1,7 +1,6 @@
 import { isPlainObject } from './util'
 import any = jasmine.any
 
-
 export function transformRequest(data: any): any {
   if (isPlainObject(data)) {
     return JSON.stringify(data)
@@ -22,7 +21,6 @@ export function parseHeaders(headers: string): any {
     }
     if (val) {
       val = val.trim()
-
     }
     parsed[key] = val
   })
@@ -39,4 +37,3 @@ export function transformResponse(data: any): any {
   }
   return data
 }
-
